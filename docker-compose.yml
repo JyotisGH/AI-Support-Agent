@@ -1,0 +1,28 @@
+version: "3.1"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: customer-support-agent
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=dev
+    env_file:
+      - .env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-customer-support-agent
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=dev
+    env_file:
+      - .env
+    command: pytest tests/ --disable-warnings --maxfail=1

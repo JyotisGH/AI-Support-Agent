@@ -1,0 +1,10 @@
+openai
+langchain
+langchain-openai
+chromadb
+gradio
+python-dotenv
+tiktoken
+langchain-community
+flask
+sentence-transformers
